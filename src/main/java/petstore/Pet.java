@@ -27,7 +27,7 @@ public class Pet {
     @Test(priority = 1) // Identifica o metodo ou função como um teste para o TestNG
     public void incluirPet() throws IOException {
         String jsonBody = lerJson("db/pet1.json");
-
+       long petId = (long) 3110199231l;
         // Sintaxe Gherkin
         // Dado - Quando - Entao
         // Given - When - Then
@@ -40,6 +40,7 @@ public class Pet {
         .then() //Entao
                 .log().all()
                 .statusCode(200)
+                .body("id", is(petId))
                 .body("name", is("Atena"))
                 .body("status", is ("available"))
                 .body("category.name", is("AX2345LORT"))
