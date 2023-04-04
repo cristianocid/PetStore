@@ -53,7 +53,7 @@ public class Store {
         String orderId = "5";
 
                 given()
-                        .contentType("application/json")
+                        .contentType(ct)
                         .log().all()
 
                         .when()
@@ -75,7 +75,7 @@ public class Store {
         String orderId = "5";
 
         given()
-                .contentType("application/json")
+                .contentType(ct)
                 .log().all()
                 .when()
                 .delete(uri + "/" + orderId)
