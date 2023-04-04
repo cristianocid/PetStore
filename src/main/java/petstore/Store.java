@@ -55,10 +55,8 @@ public class Store {
                 given()
                         .contentType(ct)
                         .log().all()
-
                         .when()
                         .get(uri + "/" + orderId)
-
                         .then()
                         .log().all()
                         .statusCode(200)
@@ -85,6 +83,21 @@ public class Store {
                 .body("code", is(200))
                 .body("type", is("unknown"))
                 .body("message", is(orderId))
+        ;
+    }
+
+    @Test(priority = 4)
+    public void consultarInventorio(){
+        String uriInventorio = "https://petstore.swagger.io/v2/store/inventory";
+
+        given()
+                .contentType(ct)
+                .log().all()
+                .when()
+                .get(uriInventorio)
+                .then()
+                .log().all()
+                .statusCode(200)
         ;
     }
 
